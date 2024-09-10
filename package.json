@@ -3,7 +3,8 @@
     "serve": "cd tasks && elm reactor",
     "format": "elm-format tasks/ --yes",
     "check:format": "elm-format tasks/ --validate",
-    "check:compile": "elm make tasks/*.elm --output=/dev/null"
+    "check:compile": "elm make tasks/*.elm --output=/dev/null",
+    "build": "for task in tasks/*.elm; do file=${task#tasks/}; elm make $task --optimize --output=public/${file%.elm}.html; done"
   },
   "devDependencies": {
     "elm": "^0.19.1-6",
